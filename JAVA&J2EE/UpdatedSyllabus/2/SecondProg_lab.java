@@ -12,7 +12,7 @@ class Book
 	}
 	public String toString()
 	{
-		String str= "Book has "+title+"title "+"whose author is "+author;
+		String str= "Book has "+title+" title "+"whose author is "+author;
 		str+="\n Book is published by "+publisher;
 		str+="\n Price is= "+price;
 		return str;
@@ -53,13 +53,13 @@ public class SecondProg_lab {
 		
 	}
 	
-	static void printBookData(Book b)
-	{
-		String str= "Book has "+b.title+"title "+"whose author is "+b.author;
-		str+="\n Book is published by "+b.publisher;
-		str+="\n Price is= "+b.price;
-		System.out.println(str);
-	}
+	// static void printBookData(Book b)
+	// {
+	// 	String str= "Book has "+b.title+"title "+"whose author is "+b.author;
+	// 	str+="\n Book is published by "+b.publisher;
+	// 	str+="\n Price is= "+b.price;
+	// 	System.out.println(str);
+	// }
 	
 	static void Read_data(ArrayList<Book> barr)
 	{
@@ -90,27 +90,27 @@ public class SecondProg_lab {
 		}
 		
 	}
-	static boolean isSubString(String s1,String s2)
-	{
-		int M = s1.length(); 
-        int N = s2.length(); 
+	// static boolean isSubString(String s1,String s2)
+	// {
+	// 	int M = s1.length(); 
+    //     int N = s2.length(); 
       
-        /* A loop to slide pat[] one by one */
-        for (int i = 0; i <= N - M; i++) { 
-            int j; 
+    //     /* A loop to slide pat[] one by one */
+    //     for (int i = 0; i <= N - M; i++) { 
+    //         int j; 
       
-            /* For current index i, check for 
-            pattern match */
-            for (j = 0; j < M; j++) 
-                if (s2.charAt(i + j) != s1.charAt(j)) 
-                    break; 
+    //         /* For current index i, check for 
+    //         pattern match */
+    //         for (j = 0; j < M; j++) 
+    //             if (s2.charAt(i + j) != s1.charAt(j)) 
+    //                 break; 
       
-            if (j == M) 
-                return false; 
-        } 
+    //         if (j == M) 
+    //             return false; 
+    //     } 
       
-        return true; 
-	}
+    //     return true; 
+	// }
 	
 	public static void main(String args[]){
 		
@@ -134,7 +134,7 @@ public class SecondProg_lab {
 			String s1 =b1.author;
 			if(s1.equals(aut_name))
 			{
-				printBookData(s.getValue());
+				System.out.println(b1);
 				
 			}
 				
@@ -160,40 +160,40 @@ public class SecondProg_lab {
 			System.out.println(b);
 		}
 		//For a given a value by the user, find all the books that match either the whole or a part of the book title. 
-		System.out.println("enter a part of a publishers name");
-		String p = sc.nextLine();
+		System.out.println("enter a part of a book title");
+		String t = sc.nextLine();
 		set = hmbook.entrySet();
 		for(Map.Entry<Integer, Book> s:set)
 		{   Book b1=s.getValue();
-			if(isSubString(b1.title,p))
+			if(b1.title.contains(t))
 			{
-				printBookData(b1);
+				System.out.println(b1);
 				
 			}
 				
 		}
 		//Identify a publisher and print books from a particular publisher. 
 		System.out.println("enter a  publishers name to print book details");
-		p = sc.nextLine();
+		String p = sc.nextLine();
 		set = hmbook.entrySet();
 		for(Map.Entry<Integer, Book> s:set)
 		{   Book b1=s.getValue();
-			if(b1.publisher.equals(p))
+			if(b1.publisher.contains(p))
 			{
-				printBookData(b1);
+				System.out.println(b1);
 				
 			}
 				
 		}
 		//Update the publisher details based on a title.
 		System.out.println("enter a title whose publisher is to be updated");
-		String t = sc.nextLine();
+		String title = sc.nextLine();
 		System.out.println("enter the updated publishers name");
 		p = sc.nextLine();
 		set = hmbook.entrySet();
 		for(Map.Entry<Integer, Book> s:set)
 		{   Book b1=s.getValue();
-			if(b1.title.equals(t))
+			if(b1.title.equals(title))
 			{
 				b1.publisher=p;
 				hmbook.put(s.getKey(), b1);
